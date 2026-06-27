@@ -1,0 +1,45 @@
+cd hailo-apps
+source setup_env.sh
+
+
+
+https://github.com/hailo-ai/hailo-apps/blob/main/hailo_apps/python/standalone_apps/lane_detection/README.md
+
+
+python hailo_apps/python/pipeline_apps/detection/detection.py \
+    --labels-json resources/json/pi_labels.json \
+    --hef-path resources/pi.hef \
+    --input resources/vdo_pi1.mp4
+
+
+
+
+python hailo_apps/python/pipeline_apps/detection/detection.py \
+    --labels-json resources/json/barcode_labels.json \
+    --hef-path resources/models/hailo8/yolov11s_obb.hef \
+    --input rpi
+
+\\\use \\\
+python hailo_apps/python/pipeline_apps/detection/detection.py \
+    --labels-json resources/json/pi_labels.json \
+    --hef-path resources/pi.hef \
+    --input rpi
+
+
+python hailo_apps/python/pipeline_apps/detection/detection.py \
+    --labels-json resources/json/pi_labels.json \
+    --hef-path resources/yolov8s.hef \
+    --input rpi
+\\\\\\\\\\\\\\\\\\
+
+
+python hailo_apps/python/standalone_apps/lane_detection/lane_detection.py \--hef-path resources/models/hailo8/ufld_v2_tu.hef \ --input rpi
+
+
+\\\use detection + lane detection combined \\\
+python hailo_apps/python/pipeline_apps/detection/detection.py \
+    --labels-json resources/json/pi_labels.json \
+    --hef-path resources/yolov8s.hef \
+    --lane-hef-path resources/models/hailo8/ufld_v2_tu.hef \
+    --input rpi
+
